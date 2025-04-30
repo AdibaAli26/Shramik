@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -39,59 +40,59 @@ function Homepage() {
   return (
     <div className="bg-[#d5e8ff] min-h-screen font-sans">
       {/* Header Section */}
-      <header className="bg-[#e5efff] py-4 px-8 flex justify-between items-center shadow-lg animate-fadeIn">
-        <div className="flex items-center hover:scale-105 transition-transform">
-          <img src="/logo.png" alt="Logo" className="h-12 w-12 mr-2 animate-spin-slow" />
-          <h1 className="text-black font-bold text-xl tracking-wide hover:text-blue-600 transition-colors">Shramik</h1>
-        </div>
+      <header className="bg-[#e5efff] py-4 px-4 flex flex-col sm:flex-row justify-between items-center shadow-lg animate-fadeIn">
+        <Link to="/" className="flex items-center hover:scale-105 transition-transform">
+          <img src="/logo.png" alt="Logo" className="h-10 w-10 sm:h-12 sm:w-12 mr-2 animate-spin-slow" />
+          <h1 className="text-black font-bold text-lg sm:text-xl tracking-wide hover:text-blue-600 transition-colors">Shramik</h1>
+        </Link>
 
-        <nav className="hidden md:flex space-x-8">
-          <button className="text-black text-lg font-semibold border-b-4 border-black hover:scale-110 transition-transform">Home</button>
-          <a href="/about" className="text-gray-600 text-lg hover:border-b-4 hover:border-black hover:scale-110 transition-all">About us</a>
-          <button className="text-gray-600 text-lg hover:border-b-4 hover:border-black hover:scale-110 transition-all">More</button>
+        <nav className="flex items-center space-x-4 sm:space-x-8 mt-4 sm:mt-0">
+          <Link to="/" className="text-black text-sm sm:text-lg font-semibold border-b-4 border-black hover:scale-110 transition-transform">Home</Link>
+          <Link to="/about" className="text-gray-600 text-sm sm:text-lg hover:border-b-4 hover:border-black hover:scale-110 transition-all">About us</Link>
+          <Link to="/contact" className="text-gray-600 text-sm sm:text-lg hover:border-b-4 hover:border-black hover:scale-110 transition-all">Contact Us</Link>
         </nav>
 
-        <div className="flex items-center space-x-4 md:space-x-6">
+        <div className="flex items-center space-x-2 sm:space-x-4 mt-4 sm:mt-0">
           <input
             type="text"
-            placeholder="Search address, city, location"
-            className="border border-gray-400 rounded-full py-2 px-4 w-64 md:w-96 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:scale-105 transition-all"
+            placeholder="Search..."
+            className="border border-gray-400 rounded-full py-1 px-3 w-32 sm:w-64 text-sm sm:text-base text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:scale-105 transition-all"
           />
-          <button className="bg-white border border-black text-black px-4 md:px-6 py-2 rounded-full shadow-lg hover:bg-black hover:text-white transition-all hover:scale-105 active:scale-95">Post</button>
-          <div className="h-10 w-10 md:h-12 md:w-12 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-            <span className="text-white text-lg md:text-2xl">👤</span>
+          <button className="bg-white border border-black text-black px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-full shadow-lg hover:bg-black hover:text-white transition-all hover:scale-105 active:scale-95">Post</button>
+          <div className="h-8 w-8 sm:h-10 sm:w-10 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+            <span className="text-white text-sm sm:text-lg">👤</span>
           </div>
         </div>
       </header>
 
       {/* Main Content Section */}
-      <main className="p-6 md:p-8 pb-0 animate-slideUp">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <main className="p-4 sm:p-8 pb-0 animate-slideUp">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
           <div>
             {/* Daily Jobs Section */}
-            <section className="bg-white rounded-xl shadow-lg p-6 mb-12 relative">
-            <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-black hover:text-blue-600 transition-colors">Daily Jobs</h2>
-                <button className="text-blue-700 text-sm underline hover:text-blue-900 hover:scale-110 transition-all">View all</button>
-            </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {jobs.map((job) => (
-                <div
-                  key={job}
-                    className="bg-gradient-to-b from-white to-blue-100 rounded-lg p-3 flex flex-col items-center shadow-lg hover:scale-105 transition-all cursor-pointer"
+            <section className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-8 sm:mb-12 relative">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-black hover:text-blue-600 transition-colors">Daily Jobs</h2>
+                <button className="text-blue-700 text-xs sm:text-sm underline hover:text-blue-900 hover:scale-110 transition-all">View all</button>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                {jobs.map((job) => (
+                  <div
+                    key={job}
+                    className="bg-gradient-to-b from-white to-blue-100 rounded-lg p-2 sm:p-3 flex flex-col items-center shadow-lg hover:scale-105 transition-all cursor-pointer"
                     onClick={() => setSelectedJob(job)}
-                >
-                  <img
-                    src={`/${job.toLowerCase().replace(" ", "")}.png`}
-                    alt={job}
-                      className="h-14 w-14 md:h-16 md:w-16 object-contain mb-2 hover:rotate-12 transition-transform"
-                  />
-                    <p className="text-center text-sm md:text-base text-black font-medium hover:text-blue-600 transition-colors">
+                  >
+                    <img
+                      src={`/${job.toLowerCase().replace(" ", "")}.png`}
+                      alt={job}
+                      className="h-10 w-10 sm:h-14 sm:w-14 object-contain mb-2 hover:rotate-12 transition-transform"
+                    />
+                    <p className="text-center text-xs sm:text-sm text-black font-medium hover:text-blue-600 transition-colors">
                       {job}
                     </p>
-                </div>
-              ))}
-            </div>
+                  </div>
+                ))}
+              </div>
 
               {/* Job Description Popup */}
               {selectedJob && (
@@ -127,7 +128,7 @@ function Homepage() {
                   </div>
                 </>
               )}
-          </section>
+            </section>
 
             {/* Contractual Job Section */}
             <section className="mt-12">
