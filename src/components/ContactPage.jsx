@@ -5,22 +5,29 @@ function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Section */}
-      <header className="bg-[#EBF5FF] py-5 px-8 flex justify-between items-center border-b border-[#E5E7EB]">
-        <Link to="/" className="flex items-center">
-          <img src="/logo.png" alt="Logo" className="h-14 w-14 mr-3" />
-          <h1 className="text-black font-bold text-2xl">Shramik</h1>
+      <header className="bg-[#EBF5FF] py-4 sm:py-5 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center border-b border-[#E5E7EB] gap-4">
+        <Link to="/" className="flex items-center hover:scale-105 transition-transform">
+          <img src="/logo.png" alt="Logo" className="h-12 sm:h-14 w-12 sm:w-14 mr-3" />
+          <h1 className="text-black font-bold text-xl sm:text-2xl">Shramik</h1>
         </Link>
 
-        <nav className="hidden md:flex space-x-8">
-          <Link to="/" className="text-gray-600 text-lg">Home</Link>
-          <Link to="/about" className="text-gray-600 text-lg">About us</Link>
-          <Link to="/contact" className="text-black text-lg font-semibold">Contact Us</Link>
+        <nav className="flex items-center space-x-8">
+          <Link to="/" className="text-gray-600 text-base sm:text-lg hover:border-b-4 hover:border-black hover:scale-110 transition-all">Home</Link>
+          <Link to="/about" className="text-gray-600 text-base sm:text-lg hover:border-b-4 hover:border-black hover:scale-110 transition-all">About us</Link>
+          <Link to="/contact" className="text-black text-base sm:text-lg font-semibold border-b-4 border-black hover:scale-110 transition-transform">Contact Us</Link>
         </nav>
 
-        <button className="bg-[#1E40AF] text-white px-8 py-3 rounded-full flex items-center font-semibold">
-          <span className="mr-2">⭐</span>
-          Download Now
-        </button>
+        <div className="flex items-center space-x-4">
+          <input
+            type="text"
+            placeholder="Search address, city, location"
+            className="border border-gray-400 rounded-full py-2 px-4 w-64 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:scale-105 transition-all"
+          />
+          <button className="bg-white border border-black text-black px-4 py-2 rounded-full shadow-lg hover:bg-black hover:text-white transition-all hover:scale-105 active:scale-95">Post</button>
+          <div className="h-10 w-10 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+            <span className="text-white text-lg">👤</span>
+          </div>
+        </div>
       </header>
 
       {/* Contact Section */}
